@@ -42,15 +42,36 @@
   <% end %>
 </ul>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    All boards
+<div class="container">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <div>
+            All boards
+          </div>
+          <div>
+            <button type="button" class="btn btn-outline-success">Add a new board</button>   
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @list_of_boards.each do |a_board| %>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <a class="d-flex list-group-item list-group-item-action" href="/boards/<%= a_board.id %>">
+                    <%= a_board.name %>
+                  </a>        
+                </div>
+                <div>
+                  <i class="fa-solid fa-chevron-right"></i>    
+                </div>    
+              </div>
+
+            </li>
+          <% end %>
+        </ul>
+      </div>      
+    </div>  
   </div>
-  <ul class="list-group list-group-flush">
-    <% @list_of_boards.each do |a_board| %>
-      <li class="list-group-item">
-        <a href="/boards/<%= a_board.id %>"><%= a_board.name %></a>
-      </li>
-    <% end %>
-  </ul>
 </div>
